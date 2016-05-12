@@ -21,13 +21,15 @@ form.addEventListener('submit', function(e) {
 	const data = new FormData(form)
 	const req1 = new XMLHttpRequest();
   req1.open("POST", "/users", true);
-	
+
 	req1.onload = function (e) {
 		console.log(req1.status)
 	}
 
-	req1.send(data);
-
+	req1.setRequestHeader("Content-Type",
+	 							"application/json;charset=UTF-8");
+	//req1.send(data);
+  req1.send(JSON.stringify({username: '99999'}));
 });
 
 // GET example
