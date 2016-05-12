@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+	<h1>Test Ajax</h1>
+	<button id="weatherButton">Get Weather</button>
+  <form id="myForm" >
+		<label for="username">用户名</label>
+		<input id="username" name="username" />
+		<button type="submit">提交</button>
+	</form>
+<script>
+
+(function(){
+// POST example
+const form = document.getElementById('myForm')
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
+	const data = new FormData(form)
+	const req1 = new XMLHttpRequest();
+  req1.open("POST", "/users", true);
+	
+	req1.onload = function (e) {
+		console.log(req1.status)
+	}
+
+	req1.send(data);
+
+});
+
+// GET example
+const body = document.getElementsByTagName("body")[0]
+const firstElement = body.childNodes[0]
+
+const elementFactory = function(tag, obj) {
+	const elem = document.createElement(tag)
+	for (p in obj) {
+		elem[p] = obj[p]
+	};
+	return elem
+}
+
+const getWeather = function(e) {
+	const oReq = new XMLHttpRequest();
+
+	oReq.open("GET", "/weather.json", true);
+
+	oReq.onload = function (e) {
+		const weather = oReq.response
+		const newParagraph = elementFactory('p', {
+		  	'innerHTML': weather.temperature
+		  })
+
+		body.appendChild(newParagraph)
+
+		const flash = document.getElementById('flash')
+		body.removeChild(flash)
+	}
+
+	oReq.responseType = "json"
+	// oReq.setRequestHeader("Content-Type",
+	// 							"application/json;charset=UTF-8");
+
+	oReq.send();
+
+	const waiting = elementFactory('p', {
+		'id': 'flash',
+		'innerHTML': '请稍候'
+	})
+
+	body.insertBefore(waiting, firstElement)
+}
+
+const weatherButton =
+      document.getElementById('weatherButton')
+weatherButton.onclick = getWeather
+
+})()
+
+
+</script>
+</body>
+</html>
