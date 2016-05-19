@@ -9,11 +9,11 @@ const sourcemaps = require('gulp-sourcemaps');
 const tsc = require("gulp-typescript");
 const tsProject = tsc.createProject("tsconfig.json");
 
-gulp.task("default", function() {
+gulp.task("default", () => {
   
 })
 
-gulp.task('build', ['compile', 'resources'],function() {
+gulp.task('build', ['compile', 'resources'],() => {
   console.log("Building the project ...")
 });
 

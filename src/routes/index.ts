@@ -8,7 +8,6 @@ const sleep = require('sleep');
 const multiparty = require('multiparty')
 
 
-
 router.get('/weather.json', (req, res, next) => {
 	sleep.sleep(5)
 	res.json({'temperature': '11'})
