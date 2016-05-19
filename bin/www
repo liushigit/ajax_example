@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
+/// <reference path="../typings/index.d.ts" />
+
+
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('ajax_sample:server');
+var app = require('../build/app');
+var debug = require('debug')('ajax_example:server');
 var http = require('http');
 
 /**

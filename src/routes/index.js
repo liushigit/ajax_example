@@ -15,7 +15,7 @@ router.post('/users', (req, res, next) => {
 	// 	console.log(fields)
 	// 	res.sendStatus(200)
 	// })
-	console.log(req.body)
+	console.log(req.body.username)
 	res.sendStatus(200)
 })
 
