@@ -1,12 +1,26 @@
-var express = require('express');
-var router = express.Router();
-var sleep = require('sleep');
-var multiparty = require('multiparty')
+/// <reference path="../../typings/index.d.ts" />
+
+import * as express from 'express';
+
+const router = express.Router();
+
+const sleep = require('sleep');
+const multiparty = require('multiparty')
+
+import * as marked from 'marked';
 
 /* GET home page. */
 router.get('/weather.json', (req, res, next) => {
 	sleep.sleep(5)
 	res.json({'temperature': '11'})
+})
+
+router.get('/write', (req, res, next) => {
+	res.render('write');
+})
+
+router.post('/show', (req, res, next) => {
+	res.render('show', {text: marked(req.body.text)})
 })
 
 router.post('/users', (req, res, next) => {
