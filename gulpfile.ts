@@ -2,8 +2,6 @@
 
 // import * as gulp from 'gulp';
 
-// require('ts-node/register');
-
 let gulp = require('gulp')
 const del = require("del");
 const sourcemaps = require('gulp-sourcemaps');

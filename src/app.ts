@@ -3,15 +3,15 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+let routes = require('./routes/index');
+let users = require('./routes/users');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +30,7 @@ app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  var err = new Error("Not Found");
+  let err = new Error("Not Found");
   
   next(err);
 });
