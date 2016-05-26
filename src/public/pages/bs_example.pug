@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Hello
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='../css/bootstrap.min.css')
+    link(rel='stylesheet', href='../css/bootstrap-theme.min.css')
+  body
+    .container
+      
+      
+      ul.nav.nav-pills
+        li.active
+          a(href="#") Home
+        li
+          a(href="#") Profile
+        li
+          a(href="#") Messages
+
+      .row
+        .col-md-4
+          ul.nav.nav-pills.nav-stacked
+            li.active
+              a(href="#") Home
+            li
+              a(href="#") Profile
+            li
+              a(href="#") Messages
+        .col-md-8
+          .panel.panel-default
+            .panel-heading Panel heading without title
+            .panel-body
+              | Panel content

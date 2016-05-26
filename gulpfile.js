@@ -37,11 +37,28 @@ gulp.task("compile", ['compile_client'], () => {
         .pipe(gulp.dest("build"));
 });
 
-gulp.task("resources", () => {
+gulp.task("resources", ['bootstrap'], () => {
     return gulp.src(["src/**/*", 
                      // "!**/*.html", 
                      "!**/*.md", 
                      "!**/*.ts", 
+                     "!**/*.pug", 
                      '!src/sass/**/*'])
         .pipe(gulp.dest("build"))
+});
+
+gulp.task('bootstrap', () => {
+    return gulp.src(["node_modules/bootstrap/dist/**/*.*", 
+                     ])
+        .pipe(gulp.dest("build/public"))
+})
+
+var pug = require('gulp-pug');
+ 
+gulp.task('jade', function buildHTML() {
+  return gulp.src('src/**/*.pug')
+  .pipe(pug({
+    // Your options in here. 
+  }))
+  .pipe(gulp.dest("build"))
 });
